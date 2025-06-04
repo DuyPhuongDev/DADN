@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./be
+    container_name: spring_app
+    ports:
+      - "9999:9999"
+    environment:
+      - AIO_USERNAME=YOUR_ADAFRUIT_USERNAME
+      - AIO_KEY=YOUR_ADAFRUIT_KEY
+      - MQTT_BROKER=tcp://io.adafruit.com:1883
+      - CLIENT_ID=springboot-client
+      - JWT_SECRETKEY=YOUR_JWT_SECRET_KEY
+      - SPRING_DATASOURCE_URL=postgresql://PG_USERNAME:PG_PASSWORD@PG_HOST:PG_PORT/PG_DATABASE
+      - SPRING_DATASOURCE_USERNAME=PG_USERNAME
+      - SPRING_DATASOURCE_PASSWORD=PG_PASSWORD
+
+    networks:
+      - iot_network
+
+networks:
+  iot_network:
+    driver: bridge

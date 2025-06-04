@@ -1,0 +1,107 @@
+# Smart Farm Mobile
+
+A Smart Farm monitoring and control mobile application built with React Native and Expo.
+
+## Features
+
+- Real-time monitoring of farm environment data
+- Remote control of farm equipment
+- User authentication and management
+- Analytics and reporting
+- Notifications and alerts
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or later)
+- npm or yarn
+- Expo CLI
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/smart-farm-mobile.git
+cd smart-farm-mobile
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Environment configuration:
+   The project uses two environment files:
+
+   - `.env` - Default development environment (points to localhost)
+   - `.env.production` - Production environment
+
+   The default `.env` file is set up with localhost:8080 as the API URL.
+
+4. Start the development server:
+
+```bash
+npm start
+# or
+yarn start
+```
+
+## Environment Configuration
+
+The application uses environment files to configure API settings with proper React Native support. The following variables are supported:
+
+| Variable    | Description                        | Development Default   | Production Default              |
+| ----------- | ---------------------------------- | --------------------- | ------------------------------- |
+| API_URL     | Base URL for API requests          | http://localhost:9999 | https://your-production-api.com |
+| API_TIMEOUT | Request timeout in milliseconds    | 20000                 | 20000                           |
+| API_VERSION | API version                        | v1                    | v1                              |
+| API_DEBUG   | Enable debug logging for API calls | true                  | false                           |
+
+### How Environment Variables Work
+
+This project uses environment variables to ensure proper configuration:
+
+- Environment variables are securely loaded at build time
+- Strong TypeScript support with type definitions in `env.d.ts`
+- Centralized configuration in `config/environment.ts`
+- Fallback default values for safety
+
+## Project Structure
+
+- `app/` - Expo Router application screens
+- `components/` - Reusable UI components
+- `config/` - Configuration files
+- `constants/` - Application constants
+- `contexts/` - React contexts
+- `hooks/` - Custom React hooks
+- `modules/` - Feature modules
+- `service/` - API services
+- `store/` - State management
+- `utils/` - Utility functions
+
+## API Configuration
+
+API requests are centralized through the `apiClient` service, which:
+
+- Uses Axios for HTTP requests
+- Automatically adds authentication tokens to requests
+- Handles token expiration and logout
+- Provides optional debug logging for API calls
+- Uses environment variables for configuration
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Commit your changes: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature/your-feature-name`
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
